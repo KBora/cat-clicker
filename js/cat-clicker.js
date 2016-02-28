@@ -5,7 +5,7 @@ var cats = [
 		clickCounter: 0
 	}	,
 	{
-		name: 'Pussy',
+		name: 'Peanut',
 		imgURL : '/img/kitten2.jpg',
 		clickCounter : 0
 	},
@@ -31,12 +31,25 @@ var catContainer;
 
 var catSelectorHTML;
 
+var $catSelectorContainer = $('#cat-selector-container');
+
 for (var i = 0; i < noOfCats; i++) {
 	// create elements for selectors based on cat array
+	$( "<div/>", {
+		"class": "cat-selector",
+		text: cats[i].name,
+		click: function() {
+			$( this ).toggleClass( "test" );
+		}	
+	})
+	.appendTo( $catSelectorContainer );
+
 	// add onclick event to these elements that will display the cat details in the container area
+	
+
 	// keep the onclick event on the image of the car to increment counter
 
-	
+
 	// catSelector 
 
 	// catContainer = $('#cat-container' + (i+1));
