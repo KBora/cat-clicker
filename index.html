@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>
+		</title>
+		<style>
+			body {
+				font-family: 'Helvetica Neue', 'Arial', sans-serif;
+			}
+			.cat-containers {
+				display: flex;
+			}
+			.cat-container { /* equal container width */
+				flex-grow: 1;
+			}
+			.cat-heading {
+				text-align: center;
+				font-size: 2em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="cat-containers">
+
+			<div id="cat-container1" class="cat-container">
+				<div class="cat-heading"></div>
+				<div class="cat-image">
+					<img src="img/kitten1.jpg" alt="Cute kitten 1">
+				</div>
+				<div class="cat-counter">
+				</div>
+			</div>
+
+			<div id="cat-container2" class="cat-container">
+				<div class="cat-heading"></div>
+				<div class="cat-image">
+					<img src="img/kitten2.jpg" alt="Cute kitten 2">
+				</div>
+				<div class="cat-counter">
+				</div>
+			</div>
+
+		</div>
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+			<script async src="js/cat-clicker.js"></script>
+
+	</body>
+</html>
