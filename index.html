@@ -6,10 +6,11 @@
 			body {
 				font-family: 'Helvetica Neue', 'Arial', sans-serif;
 			}
-			.cat-containers {
+			.cat-containers, .cat-selector-container {
 				display: flex;
+				margin: 1em 2em 1em 2em;
 			}
-			.cat-container { /* equal container width */
+			.cat-container, .cat-selector { 
 				flex-grow: 1;
 			}
 			.cat-heading {
@@ -21,27 +22,18 @@
 
 	<body>
 
-		<div class="cat-containers">
-
-			<div id="cat-container1" class="cat-container">
-				<div class="cat-heading"></div>
-				<div class="cat-image">
-					<img src="img/kitten1.jpg" alt="Cute kitten 1">
-				</div>
-				<div class="cat-counter">
-				</div>
-			</div>
-
-			<div id="cat-container2w" class="cat-container">
-				<div class="cat-heading"></div>
-				<div class="cat-image">
-					<img src="img/kitten2.jpg" alt="Cute kitten 2">
-				</div>
-				<div class="cat-counter">
-				</div>
-			</div>
-
+		<div class="cat-selector-container">
+			<div class="cat-selector">
+			</div>			
 		</div>
+
+		<div class="cat-containers">
+				<div id="cat-container" class="cat-container">
+				<div class="cat-heading"></div>
+				<div class="cat-image"></div>
+				<div class="cat-counter"></div>
+		</div>
+
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 			<script async src="js/cat-clicker.js"></script>
