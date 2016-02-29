@@ -24,7 +24,7 @@ var cats = [
 		clickCounter : 0
 	},
 	{
-		id : 'cat4',
+		id : 'cat5',
 		name: 'Rasputin',
 		imgURL : '/img/kitten5.jpg',
 		clickCounter : 0
@@ -39,28 +39,34 @@ var Cats = {
 };
 
 var noOfCats = cats.length;
-var catContainer;
-
 var catContainerHTML;
-
 var $catContainers = $('#cat-containers');
 var $catSelectorContainer = $('#cat-selector-container');
 
 for (var i = 0; i < noOfCats; i++) {
 
-	// create container elements
+	// create container elements - using the 'append' syntax 
+	// also adding click event that increments cat counter -  messy
 	catContainerHTML = $('<div id="' + cats[i].id + '" class="cat-container">')
-							.append('<div class="cat-heading"></div>')
+							.append('<div class="cat-heading">' +  cats[i].name + '</div>')
 							.append( $('<div class="cat-image"></div>')
-								.append('<img src=".' +  cats[i].imgURL +'" alt="' + cats[i].name + '">') )
+								.append('<img src=".' +  cats[i].imgURL +'" alt="' + cats[i].name + '">')
+								.click( (function(iCopy) {
+									return function() {
+										var nextCounter = cats[iCopy].clickCounter + 1
+										cats[iCopy].clickCounter = nextCounter;
+										$(this.parentElement).find('.cat-counter').text('You have clicked me ' + nextCounter  + ' times.');
+									}	
+								})(i))
+								 )
 							.append('<div class="cat-counter"></div>');
-
 	$catContainers.append(catContainerHTML);
 
-	// create elements for selectors based on cat array
+	// create selector elements
 	$( '<div/>', {
 		'class': 'cat-selector',
 		text: cats[i].name,
+		// add onclick event will display selected cat details in the container area
 		click: (function(iCopy) {			
 			return function() {
 				Cats.hideAllCats();
@@ -70,10 +76,8 @@ for (var i = 0; i < noOfCats; i++) {
 	})
 	.appendTo($catSelectorContainer);
 
-	// add onclick event to these elements that will display the cat details in the container area
 	
-
-	// keep the onclick event on the image of the car to increment counter
+	
 
 
 	// catSelector 
